@@ -3,7 +3,7 @@ const Drinks = require("../models/Drink.model");
 module.exports.drinksController = {
   getDrink: async (req, res) => {
     try {
-      const drink = await Drinks.find();
+      const drink = await Drinks.find({}, {name:1, price:1});
       res.json(drink);
     } catch (e) {
       res.json(e.message);
